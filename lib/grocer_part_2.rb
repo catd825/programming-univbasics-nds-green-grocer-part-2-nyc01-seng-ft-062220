@@ -63,7 +63,7 @@ final_cart = apply_clearance(couponed_cart)
 total = 0
 
   cart.each_with_index do |item, index|
-    if total += cart[index][:price] * cart[index][:cost]
+    total += cart[index][:price] * cart[index][:cost]
   end
   
 end
