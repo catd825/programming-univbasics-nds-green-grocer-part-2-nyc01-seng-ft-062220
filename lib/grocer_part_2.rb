@@ -64,7 +64,7 @@ total = 0
 
   cart.each_with_index do |item, index|
     total += final_cart[index][:price] * final_cart[index][:count]
-    index += 1
+    #index += 1
   end
     if total > 100
     total -= (total * 0.9)
