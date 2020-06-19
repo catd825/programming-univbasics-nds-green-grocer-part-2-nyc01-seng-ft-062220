@@ -42,7 +42,7 @@ def apply_coupons(cart, coupons)
 
 def apply_clearance(cart)
 index = 0
-  while index < cart.length
+  cart.each_with_index do |item, index|
     if cart[index][:clearance] #== true
       cart[index][:clearance] = (cart[index][:price] = (cart[index][:price] * 0.20)).round(2)
     end
