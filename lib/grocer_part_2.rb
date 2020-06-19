@@ -44,12 +44,11 @@ def apply_clearance(cart)
 
   cart.each_with_index do |item, index|
     if cart[index][:clearance] #== true
-      cart[index][:clearance] = (cart[index][:price] = (cart[index][:price] * 0.2)).round(2)
+      cart[index][:clearance] = (cart[index][:price] = (cart[index][:price] * 0.2))#.round(2)
     end
-    binding.pry
     index += 1
   end
-  cart
+  cart.round(2)
 end
 
 # Consult README for inputs and outputs
