@@ -54,17 +54,19 @@ end
 
 def checkout(cart, coupons)
 
-consolidated_cart = consolidate_cart(cart)
-couponed_cart = apply_coupons(consolidated_cart,coupons)
-final_cart = apply_clearance(couponed_cart)
-total = 0
+consolidated_cart = consolidate_cart(cart) #create variable to bring in our method to consolidate the cart
+couponed_cart = apply_coupons(consolidated_cart,coupons) #bring in variable to coupon our consolidated cart
+final_cart = apply_clearance(couponed_cart) #create variable for our final cart, which applies clearance to the couponed cart
+#these are all arrays of hashes
 
-  final_cart.each_with_index do |item, index|
-    total += (final_cart[index][:price] * final_cart[index][:count])
-    #index += 1
+
+total = 0  #set starting point for total
+
+  final_cart.each_with_index do |item, index| #iterate over our final cart, which is an array of hashes.  each hash has been couponed and discounted when applicable. 
+    total += (final_cart[index][:price] * final_cart[index][:count]) #use += to continue adding to the final cart with each iteration.  we are multiplying the price of each item and the number of each item
   end
-    if total > 100
-    total -= (total * 0.1)
+    if total > 100  #if our total is greater than $100
+    total -= (total * 0.1) #then we can apply an extra 10% discount
   end
-  total
+  total #return final total
 end
