@@ -63,7 +63,7 @@ final_cart = apply_clearance(couponed_cart)
 total = 0
 
   cart.each_with_index do |item, index|
-    total += final_cart[index][:price] * final_cart[index][:count]
+    total += (final_cart[index][:price] * final_cart[index][:count])
     #index += 1
   end
     if total > 100
