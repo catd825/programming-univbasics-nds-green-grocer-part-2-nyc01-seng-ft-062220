@@ -66,6 +66,8 @@ total = 0
     total += cart[index][:price] * cart[index][:cost]
     index += 1
   end
-  total > 100
-  total = (total * 0.9)
+    if total > 100
+    total = (total * 0.9)
+  end
+  total
 end
